@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sobre con carta</title>
+  <style>
+    body {
+      background: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .container {
+      position: relative;
+      width: 200px;
+      height: 150px;
+      cursor: pointer;
+    }
+
+    .envelope {
+      width: 100%;
+      height: 100%;
+      background-color: #c0392b;
+      border-radius: 5px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 1s;
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 50%;
+      background-color: #e74c3c;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      z-index: 2;
+      transform-origin: top;
+      transition: transform 1s;
+    }
+
+    .letter {
+      position: absolute;
+      width: 90%;
+      height: 90%;
+      top: 100%;
+      left: 5%;
+      background: white;
+      border-radius: 5px;
+      text-align: center;
+      padding-top: 50px;
+      font-size: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: top 1s;
+    }
+
+    .open .flap {
+      transform: rotateX(-180deg);
+    }
+
+    .open .letter {
+      top: 5%;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Hazle click al sobre</h2>
+
+  <div class="container" onclick="abrirSobre(this)">
+    <div class="envelope">
+      <div class="flap"></div>
+      <div class="letter">Eres la persona mas importante en mi vida mi sofi 💕</div>
+    </div>
+  </div>
+
+  <script>
+    function abrirSobre(el) {
+      el.classList.toggle("open");
+    }
+  </script>
+
+</body>
+</html>
